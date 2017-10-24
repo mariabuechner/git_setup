@@ -1,0 +1,38 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Maria Buechner
+	email = maria.buechner@gmail.com
+# Shortcuts
+[url "https://github.com/"]
+	insteadOf = gh:
+[url "https://bitbucket.org/"]
+	insteadOf = bb:
+[url "https://git.psi.ch/"]
+	insteadOf = psi:
+[alias]
+	# Status
+	st = status
+	
+	# Add all files
+	aa = add --all
+
+	# Commit
+	cm = commit
+	
+	# Amend last commit if it was too early
+	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+
+	# Checkout
+	co = checkout
+
+	# Push current branch
+	pu = push origin HEAD
+
+	# Save repo to tarball
+	export = archive -o latest.tar.gz -9 --prefix=latest/
+
+	# Unstage changes from the index
+	unstage = reset HEAD --
+
+	# List aliases
+	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
